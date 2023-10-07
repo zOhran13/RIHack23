@@ -1,4 +1,5 @@
 import 'package:fitfam/src/screens/home.dart';
+import 'package:fitfam/src/screens/profile.dart';
 import 'package:fitfam/src/utils/global_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,10 +15,8 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    Text('Profile Page',
-        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    Text('Ranking Page',
-        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    ProfileScreen(),
+    Text('Ranking Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
   ];
 
   void _onItemTapped(int index) {
