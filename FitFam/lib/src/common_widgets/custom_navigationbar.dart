@@ -38,7 +38,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         ),
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(GlobalVariables.homePageIcon),
+          icon: SvgPicture.asset(GlobalVariables.homePageIcon),
             label: ('Home'),
             backgroundColor: const Color(0xFF72B6DC),
           ),
