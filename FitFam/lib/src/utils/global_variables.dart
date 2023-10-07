@@ -54,6 +54,11 @@ class GlobalVariables {
   //icons
   static const String backIcon = "assets/images/icons/Back.svg";
   static const String googleIcon = "assets/images/icons/Google.svg";
+  static const String rankingIcon = "assets/images/icons/Ranking.svg";
+  static const String userIcon = "assets/images/icons/User.svg";
+  static const String homePageIcon = "assets/images/icons/HomePage.svg";
+
+
 
   //images
   static const String logoImage = "assets/images/Logo.svg";
