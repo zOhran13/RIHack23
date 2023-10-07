@@ -52,6 +52,13 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
             label: ('Ranking'),
             backgroundColor: const Color(0xFF72B6DC),
           ),
+          BottomNavigationBarItem(
+          icon: SvgPicture.asset(GlobalVariables.rewardIcon,width: 32.0,colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),),
+            label: ('Reward'),
+            backgroundColor: const Color(0xFF72B6DC),
+            
+
+          )
         ],
         type: BottomNavigationBarType.shifting,
         currentIndex: _selectedIndex,
