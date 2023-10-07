@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 enum TextFieldType { normal, date, area, email, password }
 
-enum EventType { walk, hike, run, other}
+enum EventType { walk, hike, run, cycle, other }
 
 class GlobalVariables {
   //textStyles
@@ -62,8 +62,10 @@ class GlobalVariables {
   static const String homePageIcon = "assets/images/icons/HomePage.svg";
   static const String logoutIcon = "assets/images/icons/Logout.svg";
 
-
-
   //images
-  static const String hikingImage = "assets/images/Hiking.png";
+  static const String walkImage = "assets/images/Walk.png";
+  static const String hikeImage = "assets/images/Hike.png";
+  static const String runImage = "assets/images/Run.png";
+  static const String cycleImage = "assets/images/Cycle.png";
+  static const String otherImage = "assets/images/Other.png";
 }

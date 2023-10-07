@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
       capacity: 20,
       going: 10,
       points: 10,
-      type: EventType.hike,
+      type: EventType.walk,
     ),
     Event(
       id: 2,
@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
       capacity: 20,
       going: 10,
       points: 10,
-      type: EventType.hike,
+      type: EventType.run,
     ),
     Event(
       id: 4,
@@ -52,7 +52,17 @@ class _HomeScreenState extends State<HomeScreen> {
       capacity: 20,
       going: 10,
       points: 10,
-      type: EventType.hike,
+      type: EventType.cycle,
+    ),
+    Event(
+      id: 5,
+      name: 'Event 5',
+      description: 'Hiking trip, very nice',
+      date: DateTime.now(),
+      capacity: 20,
+      going: 10,
+      points: 10,
+      type: EventType.other,
     ),
   ];
 
