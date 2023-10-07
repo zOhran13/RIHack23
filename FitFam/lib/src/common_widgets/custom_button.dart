@@ -10,17 +10,17 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 50.0,
-      width: MediaQuery.of(context).size.width,
+      width: 100.0,
       margin: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(
-          color: GlobalVariables.textFieldColor2,
+          color: Color.fromARGB(255, 255, 255, 255),
           borderRadius: BorderRadius.circular(10.0)),
       child: TextButton(
         onPressed: onPressed,
         child: Text(
-          'Done',
+          'Logout',
           style: GlobalVariables.textStyle2.copyWith(
-            color: GlobalVariables.grayColor,
+            color: GlobalVariables.appBarColor,
           ),
         ),
       ),
