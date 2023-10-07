@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../common_widgets/custom_button.dart';
 import '../common_widgets/custom_text_field.dart';
 import '../utils/global_variables.dart';
+import 'home.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -34,14 +34,6 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset(
-                GlobalVariables.logoImage,
-                width: 80.0,
-                height: 80.0,
-              ),
-              const SizedBox(
-                height: 40.0,
-              ),
               Text(
                 isLogin ? 'Sign in' : 'Sign up',
                 style: GlobalVariables.textStyle1
@@ -80,11 +72,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     )
-                  : const SizedBox(
-                      height: 10.0,
-                    ),
+                  : const SizedBox.shrink(),
               CustomButton(
                 onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: ((context) => HomeScreen()),
+                    ),
+                  );
                   // isLogin
                   //     ? signInWithEmailAndPassword()
                   //     : createUserWithEmailAndPassword().then((value) {
@@ -98,60 +93,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   //       });
                 },
               ),
-              Container(
-                height: 50.0,
-                width: MediaQuery.of(context).size.width,
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10.0),
-                  border: Border.all(width: 0.5),
-                ),
-                child: Material(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10.0),
-                  child: InkWell(
-                    borderRadius: BorderRadius.circular(10.0),
-                    onTap: () {
-                      // signInWithGoogle().then((value) {
-                      //   if (errorMessage == null || errorMessage!.isEmpty) {
-                      //     Navigator.of(context).pushReplacement(
-                      //       MaterialPageRoute(
-                      //         builder: ((context) => HomeScreen()),
-                      //       ),
-                      //     );
-                      //   }
-                      // });
-                    },
-                    child: Stack(
-                      alignment: AlignmentDirectional.center,
-                      children: [
-                        Positioned(
-                          left: 10.0,
-                          top: 0.0,
-                          bottom: 0.0,
-                          child: SvgPicture.asset(
-                            GlobalVariables.googleIcon,
-                            width: GlobalVariables.iconSize,
-                            height: GlobalVariables.iconSize,
-                          ),
-                        ),
-                        Positioned(
-                          child: Text(
-                            isLogin
-                                ? 'Sign in with Google'
-                                : 'Sign up with Google',
-                            style: GlobalVariables.textStyle2.copyWith(
-                              color: GlobalVariables.fontColor,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
               const SizedBox(
                 height: 10.0,
               ),
@@ -163,15 +104,30 @@ class _LoginScreenState extends State<LoginScreen> {
                   });
                 },
                 child: Text(
-                  isLogin
-                      ? 'Create an account'
-                      : 'Already have an account?',
+                  isLogin ? 'Create an account' : 'Already have an account?',
                   style: GlobalVariables.textStyle2.copyWith(
                     color: GlobalVariables.textFieldColor2,
                     decoration: TextDecoration.underline,
+                    decorationColor: GlobalVariables.textFieldColor2,
                   ),
                 ),
               ),
+              isLogin
+                  ? TextButton(
+                      onPressed: () {
+                        setState(() {
+                          errorMessage = '';
+                        });
+                      },
+                      child: Text(
+                        'Forgotten password?',
+                        style: GlobalVariables.textStyle2.copyWith(
+                            color: GlobalVariables.textFieldColor2,
+                            decoration: TextDecoration.underline,
+                            decorationColor: GlobalVariables.textFieldColor2),
+                      ),
+                    )
+                  : const SizedBox.shrink(),
             ],
           ),
         ),

@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-        //fontFamily: 'RoundedMplus1c',
+        fontFamily: 'RoundedMplus1c',
       ),
       home: const LoginScreen(),
     );

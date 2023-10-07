@@ -28,7 +28,7 @@ class GlobalVariables {
   static const Color fontColor = Color(0xB2000000);
   static const Color grayColor = Color.fromARGB(255, 239, 239, 239);
   static const Color textFieldColor1 = Color.fromARGB(255, 212, 212, 212);
-  static const Color textFieldColor2 = Color.fromRGBO(29, 102, 181, 1);
+  static const Color textFieldColor2 = Color(0xFF72B6DC);
   static const Color colorPickerPrimary = Color.fromARGB(255, 135, 193, 255);
   static const List<Color> categoryColors = [
     Color.fromARGB(255, 255, 134, 134),
@@ -47,14 +47,14 @@ class GlobalVariables {
     Color.fromARGB(255, 182, 132, 89),
   ];
   //appBar
-  static const Color appBarColor = grayColor;
+  static const Color appBarColor = Color(0xFF71B5DC);
   static const Color appBarBoxColor = Colors.white;
   static const Size appBarSize = Size.fromHeight(90.0);
 
   //icons
-  static const String backIcon = "assets/images/icons/Back.svg";
   static const String googleIcon = "assets/images/icons/Google.svg";
+  static const String runManIcon = "assets/images/icons/RunMan.svg";
 
   //images
-  static const String logoImage = "assets/images/Logo.svg";
+  static const String loginImage = "assets/images/Login.svg";
 }
