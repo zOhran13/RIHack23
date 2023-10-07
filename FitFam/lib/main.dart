@@ -1,4 +1,4 @@
-import 'package:fitfam/src/common_widgets/custom_navigationbar.dart';
+import 'package:fitfam/src/screens/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'RoundedMplus1c',
       ),
-      home:  CustomNavigationBar(),
+      home: const LoginScreen(),
     );
   }
 }

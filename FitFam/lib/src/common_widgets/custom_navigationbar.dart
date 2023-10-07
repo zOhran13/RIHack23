@@ -1,20 +1,23 @@
+import 'package:fitfam/src/screens/home.dart';
 import 'package:fitfam/src/utils/global_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomNavigationBar extends StatefulWidget {
-
+  const CustomNavigationBar({super.key});
 
   @override
-  _CustomNavigationBarState createState() => _CustomNavigationBarState();
+  State<CustomNavigationBar> createState() => _CustomNavigationBarState();
 }
 
 class _CustomNavigationBarState extends State<CustomNavigationBar> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
-    Text('Home Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    Text('Profile Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    Text('Ranking Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    HomeScreen(),
+    Text('Profile Page',
+        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    Text('Ranking Page',
+        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
   ];
 
   void _onItemTapped(int index) {
@@ -26,27 +29,26 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        
-      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        selectedLabelStyle: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.w500,
+        ),
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-             icon: SvgPicture.asset(GlobalVariables.homePageIcon),
+            icon: SvgPicture.asset(GlobalVariables.homePageIcon),
             label: ('Home'),
-            backgroundColor: Color(0xFF72B6DC),
+            backgroundColor: const Color(0xFF72B6DC),
           ),
-          
-          
-           BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: SvgPicture.asset(GlobalVariables.userIcon),
             label: ('Profile'),
-            backgroundColor:Color(0xFF72B6DC),
+            backgroundColor: const Color(0xFF72B6DC),
           ),
-           BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: SvgPicture.asset(GlobalVariables.rankingIcon),
             label: ('Ranking'),
             backgroundColor: const Color(0xFF72B6DC),
@@ -54,7 +56,6 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         ],
         type: BottomNavigationBarType.shifting,
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
         iconSize: 40,
         onTap: _onItemTapped,
         elevation: 5,

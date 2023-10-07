@@ -1,9 +1,9 @@
+import 'package:fitfam/src/common_widgets/custom_navigationbar.dart';
 import 'package:flutter/material.dart';
 
 import '../common_widgets/custom_button.dart';
 import '../common_widgets/custom_text_field.dart';
 import '../utils/global_variables.dart';
-import 'home.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: () {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: ((context) => HomeScreen()),
+                      builder: ((context) => const CustomNavigationBar()),
                     ),
                   );
                   // isLogin

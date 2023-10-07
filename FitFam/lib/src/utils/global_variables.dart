@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 enum TextFieldType { normal, date, area, email, password }
 
+enum EventType { walk, hike, run, other}
+
 class GlobalVariables {
   //textStyles
   static const TextStyle textStyle1 = TextStyle(
@@ -29,6 +31,7 @@ class GlobalVariables {
   static const Color grayColor = Color.fromARGB(255, 239, 239, 239);
   static const Color textFieldColor1 = Color.fromARGB(255, 212, 212, 212);
   static const Color textFieldColor2 = Color(0xFF72B6DC);
+  static const Color progressColor = Color.fromARGB(255, 7, 71, 172);
   static const Color colorPickerPrimary = Color.fromARGB(255, 135, 193, 255);
   static const List<Color> categoryColors = [
     Color.fromARGB(255, 255, 134, 134),

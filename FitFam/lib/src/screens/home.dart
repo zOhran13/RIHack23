@@ -2,8 +2,49 @@ import 'package:fitfam/src/utils/global_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomeScreen extends StatelessWidget {
+import '../common_widgets/custom_list_tile.dart';
+import '../models/event.dart';
+
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  List<Event> _events = [
+    Event(
+      id: 1,
+      name: 'Event 1',
+      description: 'Hiking trip, very nice',
+      date: DateTime.now(),
+      capacity: 20,
+      going: 10,
+      points: 10,
+      type: EventType.hike,
+    ),
+    Event(
+      id: 2,
+      name: 'Event 2',
+      description: 'Hiking trip, very nice',
+      date: DateTime.now(),
+      capacity: 20,
+      going: 10,
+      points: 10,
+      type: EventType.hike,
+    ),
+    Event(
+      id: 3,
+      name: 'Event 3',
+      description: 'Hiking trip, very nice',
+      date: DateTime.now(),
+      capacity: 20,
+      going: 10,
+      points: 10,
+      type: EventType.hike,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +58,7 @@ class HomeScreen extends StatelessWidget {
               height: MediaQuery.of(context).padding.top,
             ),
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Align(
                   alignment: Alignment.centerLeft,
@@ -25,38 +67,77 @@ class HomeScreen extends StatelessWidget {
                     child: Text(
                       'Hello Amina!',
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 32,
-                      ),
+                          color: Colors.white,
+                          fontSize: 32,
+                          fontWeight: FontWeight.w500),
                     ),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: SvgPicture.asset(
-                    GlobalVariables.runManIcon,
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 50.0,
+                    left: 20.0,
+                  ),
+                  child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: SvgPicture.asset(
+                      GlobalVariables.runManIcon,
+                    ),
                   ),
                 ),
               ],
             ),
-            const SizedBox(
-              height: 20.0,
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 40.0),
+                child: Text(
+                  'Level 1',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
+                ),
+              ),
             ),
-            const Text('Level 1'),
+            const Padding(
+              padding: EdgeInsets.only(left: 25.0, right: 25.0, top: 5.0),
+              child: LinearProgressIndicator(
+                minHeight: 10.0,
+                value: 0.3,
+                semanticsLabel: 'Linear progress indicator',
+                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                color: GlobalVariables.progressColor,
+              ),
+            ),
           ]),
         ),
       ),
-      body: ListView(children: const [
-        ListTile(
-          title: Text('Naziv'),
-        ),
-        ListTile(
-          title: Text('Naziv'),
-        ),
-        ListTile(
-          title: Text('Naziv'),
-        )
-      ]),
+      body: Column(
+        children: [
+          const SizedBox(height: 20.0),
+          const Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15.0),
+              child: Text(
+                'Events',
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                return CustomListTile(
+                  event: _events.elementAt(index),
+                );
+              },
+              itemCount: _events.length,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
