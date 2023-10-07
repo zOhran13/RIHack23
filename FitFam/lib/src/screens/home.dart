@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Event> _events = [
+  final List<Event> _events = [
     Event(
       id: 1,
       name: 'Event 1',
@@ -44,82 +44,94 @@ class _HomeScreenState extends State<HomeScreen> {
       points: 10,
       type: EventType.hike,
     ),
+    Event(
+      id: 4,
+      name: 'Event 4',
+      description: 'Hiking trip, very nice',
+      date: DateTime.now(),
+      capacity: 20,
+      going: 10,
+      points: 10,
+      type: EventType.hike,
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(200.0),
+        preferredSize: const Size.fromHeight(220.0),
         child: Container(
           color: GlobalVariables.appBarColor,
-          child: Column(children: [
-            SizedBox(
-              height: MediaQuery.of(context).padding.top,
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 50.0, left: 40.0),
-                    child: Text(
-                      'Hello Amina!',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 32,
-                          fontWeight: FontWeight.w500),
+          child: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).padding.top,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 50.0, left: 30.0),
+                      child: Text(
+                        'Hello Amina!',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 32,
+                            fontWeight: FontWeight.w500),
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: 50.0,
-                    left: 20.0,
-                  ),
-                  child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: SvgPicture.asset(
-                      GlobalVariables.runManIcon,
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 50.0,
+                      left: 20.0,
+                    ),
+                    child: Align(
+                      alignment: Alignment.bottomRight,
+                      child: SvgPicture.asset(
+                        GlobalVariables.runManIcon,
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            const Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: EdgeInsets.only(left: 40.0),
-                child: Text(
-                  'Level 1',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500),
+                ],
+              ),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.only(left: 30.0),
+                  child: Text(
+                    'Level 1',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500),
+                  ),
                 ),
               ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(left: 25.0, right: 25.0, top: 5.0),
-              child: LinearProgressIndicator(
-                minHeight: 10.0,
-                value: 0.3,
-                semanticsLabel: 'Linear progress indicator',
-                borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                color: GlobalVariables.progressColor,
+              const Padding(
+                padding: EdgeInsets.only(left: 25.0, right: 25.0, top: 5.0),
+                child: LinearProgressIndicator(
+                  minHeight: 10.0,
+                  value: 0.3,
+                  semanticsLabel: 'Linear progress indicator',
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  color: GlobalVariables.progressColor,
+                ),
               ),
-            ),
-          ]),
+            ],
+          ),
         ),
       ),
       body: Column(
         children: [
-          const SizedBox(height: 20.0),
+          const SizedBox(height: 30.0),
           const Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.0),
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Text(
                 'Events',
                 style: TextStyle(fontWeight: FontWeight.w500),

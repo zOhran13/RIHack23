@@ -64,5 +64,5 @@ class GlobalVariables {
 
 
   //images
-  static const String loginImage = "assets/images/Login.svg";
+  static const String hikingImage = "assets/images/Hiking.png";
 }

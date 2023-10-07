@@ -1,6 +1,7 @@
 import 'package:fitfam/src/common_widgets/custom_navigationbar.dart';
 import 'package:flutter/material.dart';
 
+import '../common_widgets/custom_alert_dialog.dart';
 import '../common_widgets/custom_button.dart';
 import '../common_widgets/custom_text_field.dart';
 import '../utils/global_variables.dart';
@@ -115,9 +116,17 @@ class _LoginScreenState extends State<LoginScreen> {
               isLogin
                   ? TextButton(
                       onPressed: () {
-                        setState(() {
-                          errorMessage = '';
+                        showDialog<String>(
+                          context: context,
+                          builder: (BuildContext context) =>
+                              const CustomAlertDialog(
+                            text1: 'Text1?',
+                            text2: 'Text2?',
+                          ),
+                        ).then((value) {
+                          if (value == 'OK') {}
                         });
+                        errorMessage = '';
                       },
                       child: Text(
                         'Forgotten password?',
