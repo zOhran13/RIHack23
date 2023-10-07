@@ -1,0 +1,45 @@
+name: fitfam
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  flutter_svg: ^2.0.7
+  syncfusion_flutter_gauges: ^23.1.39
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^2.0.0
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/icons/
+    - assets/images/
+
+  fonts:
+    - family: RoundedMplus1c
+      fonts:
+        - asset: assets/fonts/Rounded-Mplus-1c/MPLUSRounded1c-Bold.ttf
+          weight: 800
+        - asset: assets/fonts/Rounded-Mplus-1c/MPLUSRounded1c-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Rounded-Mplus-1c/MPLUSRounded1c-Regular.ttf
+          style: normal
