@@ -96,6 +96,7 @@ class EventDetailsScreen extends StatelessWidget {
           CustomTextView(
             text: '${event.date.day}/${event.date.month}/${event.date.year}',
             label: 'Date',
+            even: true,
           ),
           CustomTextView(
             text: event.type.name,
@@ -104,6 +105,7 @@ class EventDetailsScreen extends StatelessWidget {
           CustomTextView(
             text: event.location.toString(),
             label: 'Location',
+            even: true,
           ),
           CustomTextView(
             text: event.points.toString(),
@@ -112,6 +114,7 @@ class EventDetailsScreen extends StatelessWidget {
           CustomTextView(
             text: event.capacity.toString(),
             label: 'Capacity',
+            even: true,
           ),
           CustomTextView(
             text: event.going.toString(),
@@ -120,6 +123,7 @@ class EventDetailsScreen extends StatelessWidget {
           CustomTextView(
             text: event.description,
             label: 'Description',
+            even: true,
           ),
         ],
       ),

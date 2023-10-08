@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 class CustomTextView extends StatelessWidget {
   final String text;
   final String label;
-  const CustomTextView({super.key, required this.text, this.label = ''});
+  final bool even;
+  const CustomTextView(
+      {super.key, required this.text, this.label = '', this.even = false});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,9 @@ class CustomTextView extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20.0),
-              color: GlobalVariables.textFieldColor2,
+              color: even
+                  ? GlobalVariables.textFieldColor2
+                  : Color.fromARGB(255, 47, 158, 222),
             ),
             padding: const EdgeInsets.symmetric(
               horizontal: 10.0,
