@@ -1,3 +1,4 @@
+import 'package:fitfam/src/screens/new_event.dart';
 import 'package:fitfam/src/utils/global_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -148,15 +149,33 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         children: [
           const SizedBox(height: 30.0),
-          const Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              child: Text(
-                'Events',
-                style: TextStyle(fontWeight: FontWeight.w500),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Text(
+                    'Events',
+                    style: TextStyle(fontWeight: FontWeight.w500),
+                  ),
+                ),
               ),
-            ),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: IconButton(
+                    icon: const Icon(Icons.add_rounded),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const NewEventScreen()));
+                    },
+                  ),
+                ),
+              ),
+            ],
           ),
           Expanded(
             child: ListView.builder(

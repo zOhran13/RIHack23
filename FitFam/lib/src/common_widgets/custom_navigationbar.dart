@@ -1,11 +1,11 @@
 import 'package:fitfam/src/screens/event_details.dart';
+import 'package:fitfam/src/screens/ranking.dart';
+import 'package:fitfam/src/screens/reward.dart';
 import 'package:fitfam/src/screens/home.dart';
 import 'package:fitfam/src/screens/profile.dart';
-// import 'package:fitfam/src/screens/reward.dart';
 import 'package:fitfam/src/utils/global_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../models/event.dart';
 
 class CustomNavigationBar extends StatefulWidget {
@@ -20,31 +20,35 @@ class CustomNavigationBar extends StatefulWidget {
 class _CustomNavigationBarState extends State<CustomNavigationBar> {
   Event? event;
   int _selectedIndex = 0;
-  static  List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
-     const ProfileScreen(),
-    Text('Ranking Page',
-        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    PhotoListWidget(
-  photos: [
-    PhotoItem(
-      imageUrl: 'https://images.thdstatic.com/productImages/3f2eedea-5c57-4405-8f6f-533e01d50b68/svn/isotunes-ear-plugs-it-22-64_1000.jpg',
-      name: 'Reward 1.',
-      description: 'Description of Reward 1',
+    const ProfileScreen(),
+    const RankingScreen(),
+    RewardScreen(
+      photos: [
+        PhotoItem(
+          imageUrl:
+              'https://images.thdstatic.com/productImages/3f2eedea-5c57-4405-8f6f-533e01d50b68/svn/isotunes-ear-plugs-it-22-64_1000.jpg',
+          name: 'Reward 1.',
+          description: 'Description of Reward 1',
+        ),
+        PhotoItem(
+          imageUrl:
+              'https://www.sportvision.hr/files/images/2022/5/3/sport_vision_blog_patike_maraton_photo_6.jpg',
+          name: 'Reward 2.',
+          description: 'Description of Reward 2',
+        ),
+        // Add more PhotoItem objects as needed.
+      ],
     ),
-    PhotoItem(
-      imageUrl: 'https://www.sportvision.hr/files/images/2022/5/3/sport_vision_blog_patike_maraton_photo_6.jpg',
-      name: 'Reward 2.',
-      description: 'Description of Reward 2',
-    ),
-    // Add more PhotoItem objects as needed.
-  ],
-)
   ];
 
   @override
   void initState() {
     event = widget.event;
+    if (widget.read) {
+      _selectedIndex = 1;
+    }
     super.initState();
   }
 

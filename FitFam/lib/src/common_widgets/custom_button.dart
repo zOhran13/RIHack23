@@ -14,13 +14,13 @@ class CustomButton extends StatelessWidget {
       margin: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(
           color: GlobalVariables.textFieldColor2,
-          borderRadius: BorderRadius.circular(10.0)),
+          borderRadius: BorderRadius.circular(20.0)),
       child: TextButton(
         onPressed: onPressed,
         child: Text(
           'Done',
           style: GlobalVariables.textStyle2.copyWith(
-            color: GlobalVariables.grayColor,
+            color: Colors.white,
           ),
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-// Define a data class to represent each item in the list.
+import '../common_widgets/custom_app_bar.dart';
+
 class PhotoItem {
   final String imageUrl;
   final String name;
@@ -10,32 +11,37 @@ class PhotoItem {
       {required this.imageUrl, required this.name, required this.description});
 }
 
-class PhotoListWidget extends StatelessWidget {
+class RewardScreen extends StatelessWidget {
   final List<PhotoItem> photos;
 
-  const PhotoListWidget({super.key, required this.photos});
+  const RewardScreen({super.key, required this.photos});
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: photos.length,
-      itemBuilder: (context, index) {
-        final photo = photos[index];
-        return GestureDetector(
-          onTap: () {
-            // Navigate to the details screen when an item is tapped.
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => PhotoDetailsScreen(photo: photo),
-            ));
+    return Scaffold(
+        appBar: const PreferredSize(
+            preferredSize: Size.fromHeight(70.0), child: CustomAppBar()),
+        body: ListView.builder(
+          itemCount: photos.length,
+          itemBuilder: (context, index) {
+            final photo = photos[index];
+            return GestureDetector(
+              onTap: () {
+                // Navigate to the details screen when an item is tapped.
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => PhotoDetailsScreen(
+                    photo: photo,
+                  ),
+                ));
+              },
+              child: ListTile(
+                leading: Image.network(photo.imageUrl),
+                title: Text(photo.name),
+                subtitle: Text(photo.description),
+              ),
+            );
           },
-          child: ListTile(
-            leading: Image.network(photo.imageUrl),
-            title: Text(photo.name),
-            subtitle: Text(photo.description),
-          ),
-        );
-      },
-    );
+        ));
   }
 }
 
@@ -47,9 +53,8 @@ class PhotoDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Reward Details'),
-      ),
+      appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(70.0), child: CustomAppBar()),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -63,29 +68,4 @@ class PhotoDetailsScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: const Text('Photo List Example'),
-      ),
-      body: PhotoListWidget(
-        photos: [
-          PhotoItem(
-            imageUrl: 'https://example.com/image1.jpg',
-            name: 'Nagrada 1.',
-            description: 'Description of Photo 1',
-          ),
-          PhotoItem(
-            imageUrl: 'https://example.com/image2.jpg',
-            name: 'Nagrada 2.',
-            description: 'Description of Photo 2',
-          ),
-          // Add more PhotoItem objects as needed.
-        ],
-      ),
-    ),
-  ));
 }
