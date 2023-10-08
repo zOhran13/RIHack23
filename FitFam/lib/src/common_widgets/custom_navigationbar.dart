@@ -1,6 +1,7 @@
 import 'package:fitfam/src/screens/event_details.dart';
 import 'package:fitfam/src/screens/home.dart';
 import 'package:fitfam/src/screens/profile.dart';
+import 'package:fitfam/src/screens/reward.dart';
 import 'package:fitfam/src/utils/global_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
