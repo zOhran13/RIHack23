@@ -47,7 +47,7 @@ class PhotoDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Photo Details'),
+        title: Text('Reward Details'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -74,12 +74,12 @@ void main() {
         photos: [
           PhotoItem(
             imageUrl: 'https://example.com/image1.jpg',
-            name: 'Photo 1',
+            name: 'Nagrada 1.',
             description: 'Description of Photo 1',
           ),
           PhotoItem(
             imageUrl: 'https://example.com/image2.jpg',
-            name: 'Photo 2',
+            name: 'Nagrada 2.',
             description: 'Description of Photo 2',
           ),
           // Add more PhotoItem objects as needed.
