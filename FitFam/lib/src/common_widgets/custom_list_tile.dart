@@ -1,8 +1,8 @@
 import 'package:fitfam/src/models/event.dart';
-import 'package:fitfam/src/screens/event_details.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/global_variables.dart';
+import 'custom_navigationbar.dart';
 
 class CustomListTile extends StatelessWidget {
   final Event event;
@@ -31,7 +31,9 @@ class CustomListTile extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => EventDetailsScreen(),
+          builder: (context) => CustomNavigationBar(
+            event: event,
+          ),
         ));
       },
       child: Container(

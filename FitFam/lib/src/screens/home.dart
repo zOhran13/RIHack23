@@ -2,6 +2,7 @@ import 'package:fitfam/src/utils/global_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../api/api.dart';
 import '../common_widgets/custom_list_tile.dart';
 import '../models/event.dart';
 
@@ -23,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       going: 10,
       points: 10,
       type: EventType.walk,
+      location: 'Vienna',
     ),
     Event(
       id: 2,
@@ -33,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
       going: 10,
       points: 10,
       type: EventType.hike,
+      location: 'Vienna',
     ),
     Event(
       id: 3,
@@ -43,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
       going: 10,
       points: 10,
       type: EventType.run,
+      location: 'Vienna',
     ),
     Event(
       id: 4,
@@ -53,6 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
       going: 10,
       points: 10,
       type: EventType.cycle,
+      location: 'Vienna',
     ),
     Event(
       id: 5,
@@ -63,8 +68,13 @@ class _HomeScreenState extends State<HomeScreen> {
       going: 10,
       points: 10,
       type: EventType.other,
+      location: 'Vienna',
     ),
   ];
+
+  void _fetchData() async {
+    fetchAlbum();
+  }
 
   @override
   Widget build(BuildContext context) {

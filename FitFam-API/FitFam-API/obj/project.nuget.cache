@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lDd78r0WbRr/yTJyq4fH8g8rgX8Ud3kXY6ppiLT2+R4TFmw9U3U4bU0B2LT/MZbnXmtbHDtcqmylvtkJu94jTQ==",
+  "dgSpecHash": "Mlr5+clU+fWo8YYfF8hZqVBQhf2xWHrgwG1iHnH1pjMk5w4MUg+DoOsFtAsNub1dCCxsuiar68XcQoypQUlYtA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\amina\\Documents\\Projekti\\RIhack2023\\RIHack23\\FitFam-API\\FitFam-API\\FitFam-API.csproj",
+  "projectFilePath": "C:\\Users\\amina\\Desktop\\Hack\\RIHack23\\FitFam-API\\FitFam-API\\FitFam-API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\amina\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\amina\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

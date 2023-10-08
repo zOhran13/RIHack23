@@ -1,27 +1,42 @@
+import 'package:fitfam/src/screens/event_details.dart';
 import 'package:fitfam/src/screens/home.dart';
 import 'package:fitfam/src/screens/profile.dart';
 import 'package:fitfam/src/utils/global_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../models/event.dart';
+
 class CustomNavigationBar extends StatefulWidget {
-  const CustomNavigationBar({super.key});
+  final Event? event;
+  const CustomNavigationBar({super.key, this.event});
 
   @override
   State<CustomNavigationBar> createState() => _CustomNavigationBarState();
 }
 
 class _CustomNavigationBarState extends State<CustomNavigationBar> {
+  Event? event;
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     ProfileScreen(),
-    Text('Ranking Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    Text('Ranking Page',
+        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    Text('Reward Page',
+        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
   ];
+
+  @override
+  void initState() {
+    event = widget.event;
+    super.initState();
+  }
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      event = null;
     });
   }
 
@@ -29,7 +44,11 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: event != null
+            ? EventDetailsScreen(
+                event: widget.event!,
+              )
+            : _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedLabelStyle: const TextStyle(
@@ -38,7 +57,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         ),
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-          icon: SvgPicture.asset(GlobalVariables.homePageIcon),
+            icon: SvgPicture.asset(GlobalVariables.homePageIcon),
             label: ('Home'),
             backgroundColor: const Color(0xFF72B6DC),
           ),
@@ -53,11 +72,14 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
             backgroundColor: const Color(0xFF72B6DC),
           ),
           BottomNavigationBarItem(
-          icon: SvgPicture.asset(GlobalVariables.rewardIcon,width: 32.0,colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),),
+            icon: SvgPicture.asset(
+              GlobalVariables.rewardIcon,
+              width: 32.0,
+              colorFilter:
+                  const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+            ),
             label: ('Reward'),
             backgroundColor: const Color(0xFF72B6DC),
-            
-
           )
         ],
         type: BottomNavigationBarType.shifting,

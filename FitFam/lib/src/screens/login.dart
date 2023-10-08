@@ -78,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: () {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: ((context) => const CustomNavigationBar()),
+                      builder: ((context) => const CustomNavigationBar(event: null,)),
                     ),
                   );
                   // isLogin

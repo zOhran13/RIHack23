@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amina\\Documents\\Projekti\\RIhack2023\\RIHack23\\FitFam-API\\FitFam-API\\FitFam-API.csproj": {}
+    "C:\\Users\\amina\\Desktop\\Hack\\RIHack23\\FitFam-API\\FitFam-API\\FitFam-API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amina\\Documents\\Projekti\\RIhack2023\\RIHack23\\FitFam-API\\FitFam-API\\FitFam-API.csproj": {
+    "C:\\Users\\amina\\Desktop\\Hack\\RIHack23\\FitFam-API\\FitFam-API\\FitFam-API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amina\\Documents\\Projekti\\RIhack2023\\RIHack23\\FitFam-API\\FitFam-API\\FitFam-API.csproj",
+        "projectUniqueName": "C:\\Users\\amina\\Desktop\\Hack\\RIHack23\\FitFam-API\\FitFam-API\\FitFam-API.csproj",
         "projectName": "FitFam-API",
-        "projectPath": "C:\\Users\\amina\\Documents\\Projekti\\RIhack2023\\RIHack23\\FitFam-API\\FitFam-API\\FitFam-API.csproj",
+        "projectPath": "C:\\Users\\amina\\Desktop\\Hack\\RIHack23\\FitFam-API\\FitFam-API\\FitFam-API.csproj",
         "packagesPath": "C:\\Users\\amina\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amina\\Documents\\Projekti\\RIhack2023\\RIHack23\\FitFam-API\\FitFam-API\\obj\\",
+        "outputPath": "C:\\Users\\amina\\Desktop\\Hack\\RIHack23\\FitFam-API\\FitFam-API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\amina\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -104,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
