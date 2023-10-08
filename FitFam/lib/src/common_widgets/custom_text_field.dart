@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../utils/global_variables.dart';
 
@@ -60,7 +61,36 @@ class _CustomTextFieldState extends State<CustomTextField> {
         minLines: widget.textFieldType == TextFieldType.area ? 6 : null,
         maxLines: widget.textFieldType == TextFieldType.area ? null : 1,
         onTap: widget.textFieldType == TextFieldType.date && !widget.read
-            ? () async {}
+            ? () async {
+                DateTime? pickedDate = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now().add(const Duration(days: 7)),
+                    firstDate: DateTime.now(),
+                    lastDate: DateTime(DateTime.now().year + 50),
+                    builder: (context, child) {
+                      return Theme(
+                        data: Theme.of(context).copyWith(
+                          colorScheme: const ColorScheme.light(
+                            primary: GlobalVariables.textFieldColor2,
+                            onPrimary: Colors.white,
+                            onSurface: GlobalVariables.fontColor,
+                          ),
+                          textButtonTheme: TextButtonThemeData(
+                            style: TextButton.styleFrom(
+                              foregroundColor: GlobalVariables.textFieldColor2,
+                            ),
+                          ),
+                        ),
+                        child: child!,
+                      );
+                    });
+
+                if (pickedDate != null) {
+                  String formattedDate =
+                      DateFormat('dd/MM/yyyy').format(pickedDate);
+                  widget.controller.text = formattedDate;
+                }
+              }
             : null,
         decoration: InputDecoration(
           prefixIcon: widget.textFieldType == TextFieldType.date ||
