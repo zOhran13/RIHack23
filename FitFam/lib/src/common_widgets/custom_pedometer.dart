@@ -8,10 +8,30 @@ class CustomPedometer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double steps1 = steps != null ? double.parse(steps!) : 0;
+    if (steps != null) {
+      for (int i = 0; i < 100; i++) {
+        if (steps1 > 6000) {
+          steps1 = steps1 - 6000;
+        }
+      }
+    }
+
     return Column(
       children: [
+        const SizedBox(
+          height: 20.0,
+        ),
+        const Padding(
+          padding: EdgeInsets.all(10.0),
+          child: Text(
+            'Daily steps',
+            style: TextStyle(fontWeight: FontWeight.w500),
+          ),
+        ),
         SizedBox(
-          width: 150.0,
+          width: 200.0,
+          height: 200.0,
           child: SfRadialGauge(axes: <RadialAxis>[
             RadialAxis(
                 minimum: 0,
@@ -26,7 +46,7 @@ class CustomPedometer extends StatelessWidget {
                 ),
                 pointers: <GaugePointer>[
                   RangePointer(
-                    value: steps != '?' ? double.parse(steps!) / 6000 : 0,
+                    value: steps1,
                     cornerStyle: CornerStyle.bothCurve,
                     width: 0.2,
                     sizeUnit: GaugeSizeUnit.factor,
@@ -37,8 +57,9 @@ class CustomPedometer extends StatelessWidget {
                       positionFactor: 0.1,
                       angle: 90,
                       widget: Text(
-                        steps != '?' ? '$steps / 6000' : '0 / 6000',
-                        style: const TextStyle(fontSize: 11),
+                        '$steps1 / 6000',
+                        style: const TextStyle(
+                            fontSize: 11, fontWeight: FontWeight.w500),
                       ))
                 ])
           ]),
