@@ -7,8 +7,9 @@ import '../common_widgets/custom_text_view.dart';
 
 class EventDetailsScreen extends StatelessWidget {
   final Event event;
+  final bool read;
 
-  const EventDetailsScreen({super.key, required this.event});
+  const EventDetailsScreen({super.key, this.read = false, required this.event});
 
   @override
   Widget build(BuildContext context) {
@@ -62,29 +63,31 @@ class EventDetailsScreen extends StatelessWidget {
                       fit: BoxFit.fitWidth,
                     ),
                   ),
-                  Positioned(
-                    right: 0.0,
-                    bottom: 0.0,
-                    left: 0.0,
-                    child: Container(
-                      height: 40.0,
-                      color: const Color.fromARGB(204, 114, 181, 220),
-                      child: TextButton(
-                        child: const Text(
-                          'Join',
-                          style: TextStyle(color: Colors.white),
+                  read
+                      ? const SizedBox.shrink()
+                      : Positioned(
+                          right: 0.0,
+                          bottom: 0.0,
+                          left: 0.0,
+                          child: Container(
+                            height: 40.0,
+                            color: const Color.fromARGB(204, 114, 181, 220),
+                            child: TextButton(
+                              child: const Text(
+                                'Join',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              onPressed: () {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) => const CustomAlertDialog(
+                                        text1: 'Join this event?',
+                                        text2:
+                                            'Would you really like to join this event?'));
+                              },
+                            ),
+                          ),
                         ),
-                        onPressed: () {
-                          showDialog(
-                              context: context,
-                              builder: (context) => const CustomAlertDialog(
-                                  text1: 'Join this event?',
-                                  text2:
-                                      'Would you really like to join this event?'));
-                        },
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),

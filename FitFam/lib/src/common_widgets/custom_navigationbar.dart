@@ -1,7 +1,7 @@
 import 'package:fitfam/src/screens/event_details.dart';
 import 'package:fitfam/src/screens/home.dart';
 import 'package:fitfam/src/screens/profile.dart';
-import 'package:fitfam/src/screens/reward.dart';
+// import 'package:fitfam/src/screens/reward.dart';
 import 'package:fitfam/src/utils/global_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -10,7 +10,8 @@ import '../models/event.dart';
 
 class CustomNavigationBar extends StatefulWidget {
   final Event? event;
-  const CustomNavigationBar({super.key, this.event});
+  final bool read;
+  const CustomNavigationBar({super.key, this.read = false, this.event});
 
   @override
   State<CustomNavigationBar> createState() => _CustomNavigationBarState();
@@ -48,6 +49,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         child: event != null
             ? EventDetailsScreen(
                 event: widget.event!,
+                read: widget.read,
               )
             : _widgetOptions.elementAt(_selectedIndex),
       ),

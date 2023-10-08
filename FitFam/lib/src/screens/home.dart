@@ -2,7 +2,7 @@ import 'package:fitfam/src/utils/global_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../api/api.dart';
+// import '../api/api.dart';
 import '../common_widgets/custom_list_tile.dart';
 import '../models/event.dart';
 
@@ -72,9 +72,9 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
   ];
 
-  void _fetchData() async {
-    fetchAlbum();
-  }
+  // void _fetchData() async {
+  //   fetchAlbum();
+  // }
 
   @override
   Widget build(BuildContext context) {

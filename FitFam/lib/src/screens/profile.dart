@@ -28,29 +28,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   void onPedestrianStatusError(error) {
-    print('onPedestrianStatusError: $error');
     setState(() {
       _status = 'Pedestrian Status not available';
     });
-    print(_status);
   }
 
   void onStepCount(StepCount event) {
-    print(event);
     setState(() {
       _steps = event.steps.toString();
     });
   }
 
   void onPedestrianStatusChanged(PedestrianStatus event) {
-    print(event);
     setState(() {
       _status = event.status;
     });
   }
 
   void onStepCountError(error) {
-    print('onStepCountError: $error');
     setState(() {
       _steps = 'Step Count not available';
     });
@@ -73,7 +68,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: GlobalVariables.textFieldColor2,
-        toolbarHeight: 80.0,
+        toolbarHeight: 70.0,
         centerTitle: true,
         title: const Text(
           'FitFam',

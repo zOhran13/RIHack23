@@ -6,8 +6,9 @@ import 'custom_navigationbar.dart';
 
 class CustomListTile extends StatelessWidget {
   final Event event;
+  final bool read;
 
-  const CustomListTile({super.key, required this.event});
+  const CustomListTile({super.key, this.read = false, required this.event});
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +34,7 @@ class CustomListTile extends StatelessWidget {
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => CustomNavigationBar(
             event: event,
+            read: read,
           ),
         ));
       },

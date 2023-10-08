@@ -6,13 +6,14 @@ class PhotoItem {
   final String name;
   final String description;
 
-  PhotoItem({required this.imageUrl, required this.name, required this.description});
+  PhotoItem(
+      {required this.imageUrl, required this.name, required this.description});
 }
 
 class PhotoListWidget extends StatelessWidget {
   final List<PhotoItem> photos;
 
-  PhotoListWidget({required this.photos});
+  const PhotoListWidget({super.key, required this.photos});
 
   @override
   Widget build(BuildContext context) {
@@ -41,22 +42,22 @@ class PhotoListWidget extends StatelessWidget {
 class PhotoDetailsScreen extends StatelessWidget {
   final PhotoItem photo;
 
-  PhotoDetailsScreen({required this.photo});
+  const PhotoDetailsScreen({super.key, required this.photo});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Photo Details'),
+        title: const Text('Photo Details'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.network(photo.imageUrl),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Text('Name: ${photo.name}'),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text('Description: ${photo.description}'),
         ],
       ),
@@ -68,7 +69,7 @@ void main() {
   runApp(MaterialApp(
     home: Scaffold(
       appBar: AppBar(
-        title: Text('Photo List Example'),
+        title: const Text('Photo List Example'),
       ),
       body: PhotoListWidget(
         photos: [
