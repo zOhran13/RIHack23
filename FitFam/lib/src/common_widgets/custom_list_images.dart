@@ -48,7 +48,7 @@ class PhotoDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Photo Details'),
+        title: const Text('Reward Details'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
