@@ -8,10 +8,11 @@ class CustomPedometer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          SfRadialGauge(axes: <RadialAxis>[
+    return Column(
+      children: [
+        SizedBox(
+          width: 150.0,
+          child: SfRadialGauge(axes: <RadialAxis>[
             RadialAxis(
                 minimum: 0,
                 maximum: 100,
@@ -41,20 +42,18 @@ class CustomPedometer extends StatelessWidget {
                       ))
                 ])
           ]),
-          Icon(
-            status == 'walking'
-                ? Icons.directions_walk
-                : Icons.accessibility_new,
-            size: 100,
+        ),
+        Icon(
+          status == 'walking' ? Icons.directions_walk : Icons.accessibility_new,
+          size: 100,
+        ),
+        Center(
+          child: Text(
+            status != '?' ? status! : 'stopped',
+            style: const TextStyle(fontSize: 30),
           ),
-          Center(
-            child: Text(
-              status != '?' ? status! : 'stopped',
-              style: TextStyle(fontSize: 30),
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 }

@@ -71,42 +71,42 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(100.0),
-        child: Container(
-          color: GlobalVariables.textFieldColor2,
-          child: Column(children: [
-            SizedBox(
-              height: MediaQuery.of(context).padding.top,
-            ),
-            Container(
-                padding: const EdgeInsets.only(top: 30.0),
-                margin: const EdgeInsets.only(left: 300.0),
-                child: InkWell(
-                  onTap: () {
-                    showDialog<String>(
-                      context: context,
-                      builder: (BuildContext context) =>
-                          const CustomAlertDialog(
-                        text1: 'Logout',
-                        text2: 'Are you sure you want to Logout?',
-                      ),
-                    ).then((value) {
-                      if (value == 'OK') {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                            builder: (BuildContext context) => LoginScreen(),
-                          ),
-                        );
-                      }
-                    });
-                  },
-                  child: SvgPicture.asset(GlobalVariables.logoutIcon,
-                      colorFilter: const ColorFilter.mode(
-                          Colors.white, BlendMode.srcIn)),
-                ))
-          ]),
+      appBar: AppBar(
+        backgroundColor: GlobalVariables.textFieldColor2,
+        toolbarHeight: 80.0,
+        centerTitle: true,
+        title: const Text(
+          'FitFam',
+          style: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.w500, fontSize: 22.0),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0, right: 10.0),
+            child: InkWell(
+              onTap: () {
+                showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) => const CustomAlertDialog(
+                    text1: 'Logout',
+                    text2: 'Are you sure you want to log out?',
+                  ),
+                ).then((value) {
+                  if (value == 'OK') {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => const LoginScreen(),
+                      ),
+                    );
+                  }
+                });
+              },
+              child: SvgPicture.asset(GlobalVariables.logoutIcon,
+                  colorFilter:
+                      const ColorFilter.mode(Colors.white, BlendMode.srcIn)),
+            ),
+          ),
+        ],
       ),
       body: CustomPedometer(
         steps: _steps,

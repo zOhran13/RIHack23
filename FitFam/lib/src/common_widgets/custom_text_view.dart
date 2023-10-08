@@ -31,7 +31,7 @@ class CustomTextView extends StatelessWidget {
               borderRadius: BorderRadius.circular(20.0),
               color: even
                   ? GlobalVariables.textFieldColor2
-                  : Color.fromARGB(255, 47, 158, 222),
+                  : const Color.fromARGB(255, 47, 158, 222),
             ),
             padding: const EdgeInsets.symmetric(
               horizontal: 10.0,
