@@ -29,14 +29,14 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         PhotoItem(
           imageUrl:
               'https://images.thdstatic.com/productImages/3f2eedea-5c57-4405-8f6f-533e01d50b68/svn/isotunes-ear-plugs-it-22-64_1000.jpg',
-          name: 'Reward 1.',
-          description: 'Description of Reward 1',
+          name: 'Reward 1',
+          description: 'Head phones',
         ),
         PhotoItem(
           imageUrl:
               'https://www.sportvision.hr/files/images/2022/5/3/sport_vision_blog_patike_maraton_photo_6.jpg',
-          name: 'Reward 2.',
-          description: 'Description of Reward 2',
+          name: 'Reward 2',
+          description: 'Sneakers',
         ),
         // Add more PhotoItem objects as needed.
       ],

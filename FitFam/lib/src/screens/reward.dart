@@ -21,26 +21,37 @@ class RewardScreen extends StatelessWidget {
     return Scaffold(
         appBar: const PreferredSize(
             preferredSize: Size.fromHeight(70.0), child: CustomAppBar()),
-        body: ListView.builder(
-          itemCount: photos.length,
-          itemBuilder: (context, index) {
-            final photo = photos[index];
-            return GestureDetector(
-              onTap: () {
-                // Navigate to the details screen when an item is tapped.
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => PhotoDetailsScreen(
-                    photo: photo,
-                  ),
-                ));
-              },
-              child: ListTile(
-                leading: Image.network(photo.imageUrl),
-                title: Text(photo.name),
-                subtitle: Text(photo.description),
-              ),
-            );
-          },
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView.builder(
+            itemCount: photos.length,
+            itemBuilder: (context, index) {
+              final photo = photos[index];
+              return GestureDetector(
+                  onTap: () {
+                    // Navigate to the details screen when an item is tapped.
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => PhotoDetailsScreen(
+                        photo: photo,
+                      ),
+                    ));
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.all(5.0),
+                    decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 168, 230, 251),
+                        borderRadius: BorderRadius.circular(20.0)),
+                    child: ListTile(
+                      leading: Container(
+                          color: Colors.white,
+                          width: 100.0,
+                          child: Image.network(photo.imageUrl)),
+                      title: Text(photo.name),
+                      subtitle: Text(photo.description),
+                    ),
+                  ));
+            },
+          ),
         ));
   }
 }
